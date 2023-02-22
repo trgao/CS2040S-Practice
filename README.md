@@ -1,4 +1,4 @@
-# Algorithms Practice
+# Data Structures and Algorithms Practice
 ### Binary Tree ###
 * Searching, insertion and deletion
 * Recursive and Iterative BFS
