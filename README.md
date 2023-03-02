@@ -1,5 +1,5 @@
 # Data Structures and Algorithms Practice
-### Binary Tree ###
+### Binary Search Tree ###
 * Searching, insertion and deletion
 * Recursive and Iterative BFS
 * Recursive and Iterative DFS
