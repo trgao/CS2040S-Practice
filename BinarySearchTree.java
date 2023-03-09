@@ -2,7 +2,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-public class BinaryTree {
+public class BinarySearchTree {
     public static class TreeNode {
         int key;
         TreeNode left;
@@ -227,7 +227,7 @@ public class BinaryTree {
     }
 
     public static void main(String[] args) {
-        BinaryTree tree = new BinaryTree();
+        BinarySearchTree tree = new BinarySearchTree();
         tree.test();
         tree.delete(tree.root);
         tree.recursiveBFS(10);
