@@ -101,6 +101,10 @@ public class Sorting {
         quickSortHelper(array, left, end);
     }
 
+    public static void heapSort(int[] array) {
+
+    }
+
     private static void swap(int[] array, int i, int j) {
         int temp = array[i];
         array[i] = array[j];
