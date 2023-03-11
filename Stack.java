@@ -31,4 +31,8 @@ public class Stack<T> {
     public int size() {
         return this.counter;
     }
+
+    public boolean isEmpty() {
+        return this.counter == 0;
+    }
 }

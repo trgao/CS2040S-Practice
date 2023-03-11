@@ -102,13 +102,43 @@ public class Sorting {
     }
 
     public static void heapSort(int[] array) {
-
+        heapify(array, 0);
+        //extractMax
+        for (int i = 0; i < array.length; i++) {
+            swap(array, 0, array.length - 1 - i);
+            bubbleDown(array, 0, array.length - 2 - i);
+        }
     }
 
-    private static void swap(int[] array, int i, int j) {
-        int temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
+    private static void heapify(int[] array, int index) {
+        if (index >= array.length / 2) return;
+        int left = 2 * index + 1;
+        int right = 2 * index + 2;
+        heapify(array, left);
+        heapify(array, right);
+        bubbleDown(array, index, array.length - 1);
+    }
+
+    private static void bubbleDown(int[] array, int index, int end) {
+        int left = 2 * index + 1;
+        int right = 2 * index + 2;
+        if (left > end && right > end) return;
+        else if (left > end && array[right] > array[index]) {
+            swap(array, right, index);
+            bubbleDown(array, right, end);
+        } else if (right > end && array[left] > array[index]) {
+            swap(array, left, index);
+            bubbleDown(array, left, end);
+        } else if (left <= end && right <= end) {
+            if (array[left] > array[right] && array[left] > array[index]) {
+                swap(array,left, index);
+                bubbleDown(array, left, end);
+            }
+            else if (array[right] > array[left] && array[right] > array[index]) {
+                swap(array,right, index);
+                bubbleDown(array, right, end);
+            }
+        }
     }
 
     //Fisher-Yates shuffle
@@ -120,16 +150,39 @@ public class Sorting {
         Random rng = new Random();
         for (int i = array.length - 1; i > 0; i--) {
             int index = rng.nextInt(i + 1);
-            // Simple swap
-            int a = array[index];
-            array[index] = array[i];
-            array[i] = a;
+            swap(array, index, i);
         }
         return array;
     }
+
+    private static void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
     public static void main(String[] args) {
-        int[] test = testArray(15);
-        Sorting.quickSort(test);
-        System.out.println(Arrays.toString(test));
+        int[] test1 = testArray(16);
+        Sorting.bubbleSort(test1);
+        System.out.println(Arrays.toString(test1));
+
+        int[] test2 = testArray(16);
+        Sorting.selectionSort(test2);
+        System.out.println(Arrays.toString(test2));
+
+        int[] test3 = testArray(16);
+        Sorting.insertionSort(test3);
+        System.out.println(Arrays.toString(test3));
+
+        int[] test4 = testArray(16);
+        Sorting.mergeSort(test4);
+        System.out.println(Arrays.toString(test4));
+
+        int[] test5 = testArray(16);
+        Sorting.quickSort(test5);
+        System.out.println(Arrays.toString(test5));
+
+        int[] test6 = testArray(16);
+        Sorting.heapSort(test6);
+        System.out.println(Arrays.toString(test6));
     }
 }

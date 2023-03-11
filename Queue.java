@@ -35,6 +35,10 @@ public class Queue<T> {
         return this.counter;
     }
 
+    public boolean isEmpty() {
+        return this.counter == 0;
+    }
+
     private int getIndex() {
         return (this.start + this.counter) % this.queue.length;
     }
